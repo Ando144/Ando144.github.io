@@ -1,359 +1,756 @@
-<!-- HERO SECTION -->
-<section class="hero">
-  <div class="hero-content">
-    <!-- Disponibilidad -->
-    <div class="status-badge">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andoni Ortiz de Zarate | Software Engineer & AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #090d16;
+      --bg-surface: #0f172a;
+      --bg-card: #141e33;
+      --bg-card-hover: #1a2742;
+      --border: #22304d;
+      --border-accent: #38bdf8;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent-cyan: #38bdf8;
+      --accent-blue: #3b82f6;
+      --accent-emerald: #10b981;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --badge-bg: rgba(56, 189, 248, 0.1);
+      --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 5rem;
+    }
+
+    /* Fondo ambiental sutil */
+    .bg-gradient {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      height: 600px;
+      background: radial-gradient(circle 500px at 50% -10%, rgba(56, 189, 248, 0.12), transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Barra de disponibilidad */
+    .status-bar {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #34d399;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #34d399;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #34d399;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* Hero / Perfil */
+    .hero {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .hero-info {
+      flex: 1;
+    }
+
+    .hero-avatar-wrapper {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .hero-avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 24px;
+      border: 2px solid var(--border-accent);
+      object-fit: cover;
+      box-shadow: 0 12px 30px var(--accent-glow);
+      background-color: var(--bg-card);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .headline {
+      font-size: 1.15rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .bio {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 650px;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Enlaces y botones de contacto */
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.1rem;
+      border-radius: 10px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent-cyan);
+      transform: translateY(-2px);
+    }
+
+    /* Métricas destacadas */
+    .metrics-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 4rem;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.25rem;
+      border-radius: 14px;
+      transition: border-color 0.2s;
+    }
+
+    .metric-card:hover {
+      border-color: var(--border-accent);
+    }
+
+    .metric-val {
+      font-family: var(--font-mono);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      margin-bottom: 0.2rem;
+    }
+
+    .metric-label {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Secciones */
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Tarjetas de Proyectos */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-accent);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-tag-status {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      background: var(--badge-bg);
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: #ffffff;
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.55;
+    }
+
+    .project-bullets {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .project-bullets li {
+      position: relative;
+      padding-left: 1.1rem;
+      font-size: 0.875rem;
+      color: #cbd5e1;
+    }
+
+    .project-bullets li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--accent-cyan);
+    }
+
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .pill {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: rgba(255, 255, 255, 0.04);
+      color: #cbd5e1;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .project-link-btn {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: gap 0.2s;
+    }
+
+    .project-link-btn:hover {
+      text-decoration: underline;
+      gap: 0.55rem;
+    }
+
+    /* Secciones secundarias: Formación & Habilidades */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 1.5rem;
+      border-left: 2px solid var(--border);
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -6px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+    }
+
+    .timeline-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .timeline-sub {
+      font-size: 0.85rem;
+      color: var(--accent-cyan);
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-date {
+      font-size: 0.775rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-category {
+      margin-bottom: 1.25rem;
+    }
+
+    .skill-cat-name {
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* SVGs */
+    .icon {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+      .hero-avatar {
+        width: 110px;
+        height: 110px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .two-col-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-gradient"></div>
+
+  <div class="container">
+
+    <!-- Indicador de Disponibilidad para Empresas -->
+    <div class="status-bar">
       <span class="status-dot"></span>
-      Disponible para prácticas · Feb 2027 (Euskadi / Remoto)
+      Disponible para prácticas · Febrero 2027 (Euskadi / Presencial o Híbrido)
     </div>
 
-    <h1 class="hero-title">
-      Andoni Ortiz de Zarate
-    </h1>
-    
-    <p class="hero-subtitle">
-      Ingeniería de Software · Inteligencia Artificial · Industria 4.0
-    </p>
-
-    <p class="hero-bio">
-      Estudiante de 4º curso del Grado en Ingeniería Informática (<strong>UPV/EHU</strong>) y estancia Erasmus+ en <strong>THI Ingolstadt</strong> (Alemania). Especializado en arquitecturas de software robustas, minería de datos y aplicación práctica de IA en entornos industriales y de movilidad.
-    </p>
-
-    <div class="hero-actions">
-      <a href="#proyectos" class="btn btn-primary">
-        Explorar proyectos técnicos ↓
-      </a>
-      <a href="https://github.com/Ando144" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-        GitHub (@Ando144)
-      </a>
-      <a href="https://www.linkedin.com/in/andoni-ortiz-de-zarate-urruela" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-        LinkedIn
-      </a>
-    </div>
-
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        📍 <span>Bilbao, Bizkaia · Ingolstadt, Alemania</span>
-      </div>
-      <div class="hero-meta-item">
-        🌐 <span>Bilingüe Euskera & Castellano · Inglés B2</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Avatar con imagen de perfil de GitHub -->
-  <div class="hero-photo-container">
-    <div class="avatar-wrapper">
-      <div class="avatar-glow"></div>
-      <img class="avatar-img" 
-           src="https://avatars.githubusercontent.com/Ando144" 
-           alt="Foto de perfil de Andoni Ortiz de Zarate" 
-           onerror="this.src='https://ui-avatars.com/api/?name=Andoni+Ortiz+de+Zarate&background=1e293b&color=38bdf8&size=256'"/>
-    </div>
-  </div>
-</section>
-
-<!-- METRICS / IMPACT CARDS -->
-<div class="metrics-bar">
-  <div class="metric-card">
-    <div class="metric-val">4º Curso</div>
-    <div class="metric-label">Ing. Informática de Gestión</div>
-  </div>
-  <div class="metric-card">
-    <div class="metric-val">96.6%</div>
-    <div class="metric-label">Precisión en Clasificación NLP</div>
-  </div>
-  <div class="metric-card">
-    <div class="metric-val">Bare-Metal</div>
-    <div class="metric-label">Microcontroladores & FSM</div>
-  </div>
-  <div class="metric-card">
-    <div class="metric-val">Feb 2027</div>
-    <div class="metric-label">Disponibilidad para Prácticas</div>
-  </div>
-</div>
-
-<!-- PROYECTOS DESTACADOS -->
-<section id="proyectos">
-  <div class="section-header">
-    <div class="section-badge">// Portafolio Técnico</div>
-    <h2 class="section-title">Proyectos Destacados de Ingeniería</h2>
-    <p class="section-desc">Soluciones integrales que combinan software analítico, desarrollo embebido, aplicaciones móviles e integración industrial.</p>
-  </div>
-
-  <div class="projects-grid">
-
-    <!-- 1. TFG: DIGITALIZACIÓN LÁCTEA -->
-    <article class="project-card">
-      <div class="project-top">
-        <div class="project-header-line">
-          <span class="project-type-tag">Trabajo de Fin de Grado</span>
-          <span class="badge-in-progress">● En curso</span>
-        </div>
-        <h3>Digitalización e IA en Producción Láctea</h3>
+    <!-- Encabezado / Perfil -->
+    <header class="hero">
+      <div class="hero-info">
+        <h1>Andoni Ortiz de Zarate</h1>
+        <div class="headline">Ingeniería de Software · Inteligencia Artificial · Industria 4.0</div>
         
-        <div class="project-techs">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">Pandas</span>
-          <span class="tech-tag">Scikit-learn</span>
-          <span class="tech-tag">SQL</span>
-          <span class="tech-tag">Lely APIs</span>
-          <span class="tech-tag">Trazabilidad QR</span>
-        </div>
-
-        <ul class="project-points">
-          <li><strong>Arquitectura digital completa:</strong> Modernización integral de una quesería artesanal en Euskadi.</li>
-          <li><strong>Integración IoT:</strong> Pipeline de datos automatizado para telemetría proveniente de robots de ordeño Lely y trazabilidad por códigos QR.</li>
-          <li><strong>Data Mining & Optimización:</strong> Extracción de patrones de calidad de leche para optimización de rendimientos queseros.</li>
-        </ul>
-      </div>
-      <div class="project-footer">
-        <span style="font-size: 0.825rem; color: var(--text-muted);">Aplicación directa en Industria 4.0</span>
-      </div>
-    </article>
-
-    <!-- 2. UNIGO: SMART MOBILITY -->
-    <article class="project-card">
-      <div class="project-top">
-        <div class="project-header-line">
-          <span class="project-type-tag">Mobile & Geo-Data</span>
-        </div>
-        <h3>UNIGO: Movilidad Urbana Inteligente</h3>
-
-        <div class="project-techs">
-          <span class="tech-tag">Java</span>
-          <span class="tech-tag">Android SDK</span>
-          <span class="tech-tag">MVVM</span>
-          <span class="tech-tag">Room / SQLite</span>
-          <span class="tech-tag">Google Maps API</span>
-          <span class="tech-tag">Open Data</span>
-        </div>
-
-        <ul class="project-points">
-          <li><strong>Centralización de transporte:</strong> App nativa Android para métricas de tránsito urbano y horarios en Bizkaia.</li>
-          <li><strong>Consumo en tiempo real:</strong> Integración de APIs de datos abiertos (Euskalmet, Open-Meteo) y SDK de mapas con geolocalización.</li>
-          <li><strong>Arquitectura escalable:</strong> Patrón MVVM, persistencia local offline-first con Room DB y servicios en background.</li>
-        </ul>
-      </div>
-      <div class="project-footer">
-        <a href="https://github.com/Ando144/Unigo-SmartMobility-App" target="_blank" rel="noopener noreferrer" class="project-link">
-          Repositorio GitHub ↗
-        </a>
-      </div>
-    </article>
-
-    <!-- 3. NLP CLASSIFIER -->
-    <article class="project-card">
-      <div class="project-top">
-        <div class="project-header-line">
-          <span class="project-type-tag">Machine Learning & NLP</span>
-        </div>
-        <h3>Clasificador NLP & Pipeline de Texto</h3>
-
-        <div class="project-techs">
-          <span class="tech-tag">Java</span>
-          <span class="tech-tag">Weka</span>
-          <span class="tech-tag">Multilayer Perceptron</span>
-          <span class="tech-tag">TF-IDF</span>
-          <span class="tech-tag">Data Preprocessing</span>
-        </div>
-
-        <ul class="project-points">
-          <li><strong>Pipeline de NLP automatizado:</strong> Limpieza, tokenización y ponderación TF-IDF sobre el corpus no estructurado Enron-Spam (>5.100 registros).</li>
-          <li><strong>Redes Neuronales (MLP):</strong> Ajuste empírico de hiperparámetros de la red multicapa.</li>
-          <li><strong>Resultado:</strong> Alcanzada una <strong>precisión del 96,6%</strong> en la clasificación y detección de anomalías.</li>
-        </ul>
-      </div>
-      <div class="project-footer">
-        <a href="https://github.com/Ando144/NLP-Text-Classifier-Java-Weka" target="_blank" rel="noopener noreferrer" class="project-link">
-          Repositorio GitHub ↗
-        </a>
-      </div>
-    </article>
-
-    <!-- 4. EMBEDDED CONTROLLER -->
-    <article class="project-card">
-      <div class="project-top">
-        <div class="project-header-line">
-          <span class="project-type-tag">Sistemas Embebidos</span>
-        </div>
-        <h3>Controlador en Tiempo Real para Lavado Industrial</h3>
-
-        <div class="project-techs">
-          <span class="tech-tag">Ensamblador</span>
-          <span class="tech-tag">Philips/NXP 80C552</span>
-          <span class="tech-tag">FSM Determinista</span>
-          <span class="tech-tag">Interrupciones HW</span>
-          <span class="tech-tag">PWM</span>
-        </div>
-
-        <ul class="project-points">
-          <li><strong>Desarrollo Bare-Metal:</strong> Control de bajo nivel para un túnel automatizado de lavado multietapa.</li>
-          <li><strong>Máquina de Estados (FSM):</strong> 21 estados deterministas gestionados mediante interrupciones de base temporal fija (50ms).</li>
-          <li><strong>Control de actuadores:</strong> Modulación de motores por pulsos (PWM) y sensórica analógica/digital.</li>
-        </ul>
-      </div>
-      <div class="project-footer">
-        <a href="https://github.com/Ando144/embedded-carwash-controller-8051" target="_blank" rel="noopener noreferrer" class="project-link">
-          Repositorio GitHub ↗
-        </a>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<!-- HABILIDADES TÉCNICAS -->
-<section id="habilidades">
-  <div class="section-header">
-    <div class="section-badge">// Stack & Herramientas</div>
-    <h2 class="section-title">Habilidades Técnicas</h2>
-    <p class="section-desc">Tecnologías y prácticas empleadas tanto en el entorno universitario como en proyectos aplicados.</p>
-  </div>
-
-  <div class="skills-container">
-    <div class="skill-card">
-      <div class="skill-card-icon">⚡</div>
-      <h4>Lenguajes</h4>
-      <p><strong>Java</strong> (Core, Servlets), <strong>Python</strong>, <strong>C</strong>, Ensamblador (arquitecturas 8051/8085).</p>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-card-icon">🎯</div>
-      <h4>Testing & Calidad</h4>
-      <p>Unit Testing riguroso con <strong>JUnit</strong>, metodologías <strong>TDD</strong> (Test-Driven Development) y diseño orientado a objetos.</p>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-card-icon">🧠</div>
-      <h4>Datos & IA</h4>
-      <p>Pandas, Scikit-learn, Weka, bases de datos relacionales (<strong>SQL, SQLite</strong>) y grafos (<strong>GraphDB</strong> NoSQL).</p>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-card-icon">🛠️</div>
-      <h4>DevOps & Entorno</h4>
-      <p><strong>Git</strong> / GitHub workflows, <strong>Docker</strong>, Google Cloud Platform (GCP), Linux Shell scripting.</p>
-    </div>
-  </div>
-</section>
-
-<!-- TRAYECTORIA ACADÉMICA Y EXPERIENCIA -->
-<section id="trayectoria">
-  <div class="section-header">
-    <div class="section-badge">// Experiencia y Estudios</div>
-    <h2 class="section-title">Formación y Trayectoria</h2>
-    <p class="section-desc">Combinación de rigor académico en centros tecnológicos y experiencia práctica operativa.</p>
-  </div>
-
-  <div class="timeline">
-
-    <!-- THI ERASMUS -->
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <h3 class="timeline-role">Programa de Intercambio Internacional Erasmus+</h3>
-        <span class="timeline-date">Oct 2026 — Presente</span>
-      </div>
-      <div class="timeline-entity">
-        🏛️ <strong>Technische Hochschule Ingolstadt (THI)</strong> · Ingolstadt, Alemania
-      </div>
-      <p class="timeline-desc">
-        Estancia de especialización en uno de los centros de referencia de automoción e ingeniería de Baviera. Foco en <strong>Inteligencia Artificial aplicada</strong> e <strong>Ingeniería de Software Avanzada</strong>.
-      </p>
-    </div>
-
-    <!-- UPV/EHU GRADO -->
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <h3 class="timeline-role">Grado en Ingeniería Informática de Gestión y Sistemas de Información</h3>
-        <span class="timeline-date">Sep 2022 — Previsto 2027</span>
-      </div>
-      <div class="timeline-entity">
-        🏛️ <strong>Universidad del País Vasco (UPV/EHU)</strong> · Bilbao, Bizkaia
-      </div>
-      <p class="timeline-desc">
-        Formación central en Diseño Avanzado de Software, Sistemas Web Distribuidos, Arquitectura de Computadores e Ingeniería del Software.
-      </p>
-    </div>
-
-    <!-- EXPERIENCIA PRODUCCIÓN -->
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <h3 class="timeline-role">Asistente de Operaciones y Producción</h3>
-        <span class="timeline-date">Veranos 2022 — 2026</span>
-      </div>
-      <div class="timeline-entity">
-        🧀 <strong>Quesería Familiar Artesanal</strong> · Respaldiza, Aiara
-      </div>
-      <p class="timeline-desc">
-        Planificación logística diaria, ejecución de estrictos controles sanitarios y resolución de incidencias en planta en tiempo real. Esta experiencia de campo inspiró directamente la investigación y desarrollo de mi TFG en modernización e Industria 4.0.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- CONTACTO & IDIOMAS -->
-<section id="contacto">
-  <div class="section-header">
-    <div class="section-badge">// ¿Hablamos?</div>
-    <h2 class="section-title">Contacto y Disponibilidad</h2>
-  </div>
-
-  <div class="contact-card">
-    <div class="contact-grid">
-      <div>
-        <h3 style="color: #fff; margin-bottom: 0.5rem; font-size: 1.3rem;">
-          Incorporación a prácticas
-        </h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-          Busco activamente una oportunidad de prácticas de cara a <strong>febrero de 2027</strong> en el ecosistema tecnológico e industrial de Euskadi (Bilbao y Bizkaia / híbrido) para aportar valor en digitalización, IA y desarrollo de sistemas.
+        <p class="bio">
+          Estudiante de 4º curso en <strong>Ingeniería Informática de Gestión y Sistemas de Información (UPV/EHU)</strong> y actualmente en estancia Erasmus+ en <strong>Technische Hochschule Ingolstadt (Alemania)</strong>. Enfoque en desarrollo de software robusto, arquitecturas orientadas a datos y soluciones reales para modernización industrial.
         </p>
 
-        <ul class="contact-info-list">
-          <li class="contact-item">
-            📧 <a href="mailto:andoni.otzdezarate@gmail.com">andoni.otzdezarate@gmail.com</a>
-          </li>
-          <li class="contact-item">
-            📱 <a href="https://wa.me/34646656893" target="_blank" rel="noopener noreferrer">+34 646 656 893 (WhatsApp / Llamada)</a>
-          </li>
-          <li class="contact-item">
-            💼 <a href="https://www.linkedin.com/in/andoni-ortiz-de-zarate-urruela" target="_blank" rel="noopener noreferrer">Perfil en LinkedIn</a>
-          </li>
-          <li class="contact-item">
-            🐙 <a href="https://github.com/Ando144" target="_blank" rel="noopener noreferrer">github.com/Ando144</a>
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="lang-box">
-          <h4>Competencia Lingüística</h4>
-          <div class="lang-item">
-            <span>Euskera</span>
-            <strong>Bilingüe / Nativo</strong>
+        <div class="meta-tags">
+          <div class="meta-item">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Bilbao, Bizkaia / Ingolstadt, Alemania
           </div>
-          <div class="lang-item">
-            <span>Castellano</span>
-            <strong>Nativo</strong>
-          </div>
-          <div class="lang-item">
-            <span>Inglés</span>
-            <strong>Competencia Profesional (B2)</strong>
-          </div>
-          <div class="lang-item">
-            <span>Alemán</span>
-            <strong>Básico (A1)</strong>
+          <div class="meta-item">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1a2 2 0 0 0 2 2v1.93zm6.9-2.54A9.97 9.97 0 0 0 20 12c0-2.08-.8-3.97-2.1-5.39A2 2 0 0 0 16 7h-1v2a2 2 0 0 1-2 2h-2v2h4a2 2 0 0 1 2 2v.39z"/></svg>
+            Euskera & Castellano (Nativo) · Inglés (B2)
           </div>
         </div>
 
-        <div style="margin-top: 1.25rem; text-align: center;">
-          <a href="mailto:andoni.otzdezarate@gmail.com?subject=Oportunidad%20de%20Pr%C3%A1cticas%20-%20Ingenier%C3%ADa%20Inform%C3%A1tica" class="btn btn-primary" style="width: 100%; justify-content: center;">
-            Enviar correo directo
+        <div class="cta-group">
+          <a href="mailto:andoni.otzdezarate@gmail.com" class="btn btn-primary">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Contactar por Email
+          </a>
+          <a href="https://github.com/Ando144" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub (@Ando144)
+          </a>
+          <a href="https://www.linkedin.com/in/andoni-ortiz-de-zarate-urruela" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            LinkedIn
           </a>
         </div>
       </div>
-    </div>
+
+      <div class="hero-avatar-wrapper">
+        <img class="hero-avatar" src="https://avatars.githubusercontent.com/Ando144" alt="Andoni Ortiz de Zarate" onerror="this.src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'">
+      </div>
+    </header>
+
+    <!-- Métricas Técnicas Cuantificables -->
+    <section class="metrics-bar">
+      <div class="metric-card">
+        <div class="metric-val">96.6%</div>
+        <div class="metric-label">Precisión en Clasificación NLP (Perceptrón Multicapa)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">21 Estados</div>
+        <div class="metric-label">FSM Determinista Bare-Metal (Philips 80C552)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">Industria 4.0</div>
+        <div class="metric-label">Integración Lely & Trazabilidad QR en TFG</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">4º Curso + THI</div>
+        <div class="metric-label">Ingeniería UPV/EHU & THI Ingolstadt (Alemania)</div>
+      </div>
+    </section>
+
+    <!-- Proyectos de Ingeniería -->
+    <section>
+      <h2 class="section-title">Proyectos Destacados de Ingeniería</h2>
+      <p class="section-sub">Desarrollo de software aplicado a la industria, inteligencia artificial y sistemas embebidos.</p>
+
+      <div class="projects-grid">
+
+        <!-- Proyecto 1: TFG -->
+        <article class="project-card">
+          <div>
+            <div class="project-header">
+              <span class="project-tag-status">TRABAJO FIN DE GRADO · EN CURSO</span>
+            </div>
+            <h3 class="project-title">Digitalización e IA en Producción Láctea</h3>
+            <p class="project-desc">Diseño e implantación de la arquitectura digital integral para la modernización y trazabilidad de una planta artesanal de derivados lácteos.</p>
+            <ul class="project-bullets">
+              <li>Ingesta de flujos de datos en tiempo real desde robots automatizados de ordeño Lely.</li>
+              <li>Sistema de control de calidad por lotes con trazabilidad unitaria mediante códigos QR.</li>
+              <li>Minería de datos con Pandas y Scikit-learn para optimización de rendimiento y correlación de variables.</li>
+            </ul>
+          </div>
+          <div class="tech-pills">
+            <span class="pill">Python</span>
+            <span class="pill">Scikit-learn</span>
+            <span class="pill">Pandas</span>
+            <span class="pill">SQL</span>
+            <span class="pill">Lely API</span>
+            <span class="pill">IoT & QR</span>
+          </div>
+        </article>
+
+        <!-- Proyecto 2: UNIGO -->
+        <article class="project-card">
+          <div>
+            <div class="project-header">
+              <span class="project-tag-status">PROYECTO MÓVIL & GIS</span>
+              <a href="https://github.com/Ando144/Unigo-SmartMobility-App" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                Ver Código ↗
+              </a>
+            </div>
+            <h3 class="project-title">UNIGO: Movilidad Urbana Inteligente</h3>
+            <p class="project-desc">Aplicación Android nativa para la centralización en tiempo real del transporte metropolitano y variables de movilidad urbana en Bizkaia.</p>
+            <ul class="project-bullets">
+              <li>Arquitectura limpia bajo patrón MVVM con persistencia local mediante Room y SQLite.</li>
+              <li>Consumo de APIs de datos abiertos (Open Data Euskadi, Euskalmet, Open-Meteo).</li>
+              <li>Visualización geoespacial e interactiva sobre Google Maps SDK con servicios en segundo plano.</li>
+            </ul>
+          </div>
+          <div class="tech-pills">
+            <span class="pill">Java</span>
+            <span class="pill">Android SDK</span>
+            <span class="pill">Room / SQLite</span>
+            <span class="pill">Google Maps SDK</span>
+            <span class="pill">REST APIs</span>
+          </div>
+        </article>
+
+        <!-- Proyecto 3: NLP Pipeline -->
+        <article class="project-card">
+          <div>
+            <div class="project-header">
+              <span class="project-tag-status">MACHINE LEARNING</span>
+              <a href="https://github.com/Ando144/NLP-Text-Classifier-Java-Weka" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                Ver Código ↗
+              </a>
+            </div>
+            <h3 class="project-title">Pipeline de Procesamiento NLP & Clasificador</h3>
+            <p class="project-desc">Pipeline end-to-end de clasificación automática de texto sobre datasets no estructurados utilizando el corpus Enron.</p>
+            <ul class="project-bullets">
+              <li>Extracción, tokenización y vectorización TF-IDF con control de dispersión de vocabulario.</li>
+              <li>Entrenamiento y calibración de un Perceptrón Multicapa (MLP) mediante la API de Weka en Java.</li>
+              <li>Obtención de un 96,6% de precisión evaluado sobre más de 5.100 instancias de texto.</li>
+            </ul>
+          </div>
+          <div class="tech-pills">
+            <span class="pill">Java</span>
+            <span class="pill">Weka API</span>
+            <span class="pill">MLP Neural Net</span>
+            <span class="pill">TF-IDF</span>
+            <span class="pill">Data Preprocessing</span>
+          </div>
+        </article>
+
+        <!-- Proyecto 4: Embebido 8051 -->
+        <article class="project-card">
+          <div>
+            <div class="project-header">
+              <span class="project-tag-status">SISTEMAS EMBEBIDOS / BARE-METAL</span>
+              <a href="https://github.com/Ando144/embedded-carwash-controller-8051" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                Ver Código ↗
+              </a>
+            </div>
+            <h3 class="project-title">Controlador de Tiempo Real para Túnel de Lavado</h3>
+            <p class="project-desc">Software de control determinista a bajo nivel para maquinaria industrial de lavado multietapa sin sistema operativo intermediario.</p>
+            <ul class="project-bullets">
+              <li>Programación bare-metal sobre microcontrolador Philips/NXP 80C552.</li>
+              <li>Máquina de Estados Finitos (FSM) de 21 estados gestionada por interrupciones de temporizador de 50ms.</li>
+              <li>Generación y control de PWM para la regulación dinámica de velocidad en rodillos y bombas.</li>
+            </ul>
+          </div>
+          <div class="tech-pills">
+            <span class="pill">Ensamblador (8051)</span>
+            <span class="pill">Bare-Metal</span>
+            <span class="pill">FSM Determinista</span>
+            <span class="pill">Timers & PWM</span>
+            <span class="pill">NXP 80C552</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Educación y Competencias -->
+    <section class="two-col-grid">
+      
+      <!-- Educación y Experiencia -->
+      <div class="info-card">
+        <h3 class="section-title" style="font-size: 1.25rem; margin-bottom: 1.5rem;">Formación y Trayectoria</h3>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-title">Technische Hochschule Ingolstadt (THI)</div>
+          <div class="timeline-sub">Estancia Erasmus+ · Alemania</div>
+          <div class="timeline-date">Oct 2026 — Presente</div>
+          <p style="font-size: 0.875rem; color: var(--text-muted);">Especialización en Inteligencia Artificial aplicada e Ingeniería de Software Avanzada.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-title">Universidad del País Vasco (UPV/EHU)</div>
+          <div class="timeline-sub">Grado en Ing. Informática de Gestión y Sistemas de Información</div>
+          <div class="timeline-date">Sep 2022 — Previsto 2027</div>
+          <p style="font-size: 0.875rem; color: var(--text-muted);">Énfasis en Arquitectura de Software, Minería de Datos, Sistemas Web y Arquitectura de Computadores.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-title">Asistente de Operaciones y Producción</div>
+          <div class="timeline-sub">Quesería Artesanal (Aiara, Araba)</div>
+          <div class="timeline-date">Veranos 2022 — 2026</div>
+          <p style="font-size: 0.875rem; color: var(--text-muted);">Control de calidad sanitario y gestión logística en planta, base operativa que impulsa el TFG de digitalización.</p>
+        </div>
+      </div>
+
+      <!-- Habilidades Técnicas -->
+      <div class="info-card">
+        <h3 class="section-title" style="font-size: 1.25rem; margin-bottom: 1.5rem;">Stack Tecnológico</h3>
+
+        <div class="skill-category">
+          <div class="skill-cat-name">Lenguajes de Programación</div>
+          <div class="tech-pills" style="border: none; padding: 0;">
+            <span class="pill">Java (Core, Servlets)</span>
+            <span class="pill">Python</span>
+            <span class="pill">C</span>
+            <span class="pill">Ensamblador (8051 / 8085)</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-name">Datos e Inteligencia Artificial</div>
+          <div class="tech-pills" style="border: none; padding: 0;">
+            <span class="pill">Scikit-learn</span>
+            <span class="pill">Weka</span>
+            <span class="pill">Pandas</span>
+            <span class="pill">Minería de Datos</span>
+            <span class="pill">TF-IDF & NLP</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-name">Bases de Datos & Mobile</div>
+          <div class="tech-pills" style="border: none; padding: 0;">
+            <span class="pill">SQL / SQLite</span>
+            <span class="pill">GraphDB (NoSQL)</span>
+            <span class="pill">Android SDK</span>
+            <span class="pill">Room ORM</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-name">Herramientas & Metodologías</div>
+          <div class="tech-pills" style="border: none; padding: 0;">
+            <span class="pill">Git / GitHub</span>
+            <span class="pill">Docker</span>
+            <span class="pill">Google Cloud Platform</span>
+            <span class="pill">Linux Shell</span>
+            <span class="pill">JUnit (Testing/TDD)</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 Andoni Ortiz de Zarate Urruela · Alojado en GitHub Pages</p>
+    </footer>
+
   </div>
-</section>
+
+</body>
+</html>
