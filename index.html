@@ -4,11 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Andoni Ortiz de Zarate — Ingeniería Informática</title>
+  <meta name="description" content="Andoni Ortiz de Zarate Urruela, estudiante de 4º de Ingeniería Informática de Gestión y Sistemas de Información (UPV/EHU). Proyectos de datos, IA, Android y sistemas embebidos. Busco prácticas en digitalización industrial en Euskadi desde febrero de 2027.">
+  <meta name="author" content="Andoni Ortiz de Zarate Urruela">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Andoni Ortiz de Zarate — Ingeniería Informática">
+  <meta property="og:description" content="Datos, IA, Android y sistemas embebidos. Busco prácticas en digitalización industrial en Euskadi desde febrero de 2027.">
+  <meta property="og:url" content="https://ando144.github.io/">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/Ando144?v=3">
+  <meta name="theme-color" content="#18181b">
+  <link rel="canonical" href="https://ando144.github.io/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2318181b'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='monospace' font-size='28' font-weight='700' fill='%23ffffff'%3EAO%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <script>
+    // Apply the saved theme (or the system one) before the page is drawn.
+    (function () {
+      var theme = null;
+      try { theme = localStorage.getItem('theme'); } catch (e) {}
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Andoni Ortiz de Zarate Urruela",
+    "url": "https://ando144.github.io/",
+    "image": "https://avatars.githubusercontent.com/Ando144?v=3",
+    "jobTitle": "Estudiante de Ingeniería Informática de Gestión y Sistemas de Información",
+    "alumniOf": [
+      {"@type": "CollegeOrUniversity", "name": "Universidad del País Vasco / Euskal Herriko Unibertsitatea (UPV/EHU)"},
+      {"@type": "CollegeOrUniversity", "name": "Technische Hochschule Ingolstadt"}
+    ],
+    "address": {"@type": "PostalAddress", "addressLocality": "Bilbao", "addressRegion": "Bizkaia", "addressCountry": "ES"},
+    "knowsLanguage": ["eu", "es", "en", "de"],
+    "sameAs": [
+      "https://github.com/Ando144",
+      "https://www.linkedin.com/in/andoni-ortiz-de-zarate-urruela"
+    ]
+  }
+  </script>
+
   <style>
+
     :root[data-theme="light"] {
       --bg-page: #f4f4f5;
       --bg-box: #ffffff;
@@ -443,6 +487,106 @@
       color: var(--text-muted);
     }
 
+    /* Etiqueta de estado del proyecto */
+    .badge-live {
+      color: var(--status-text);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+    }
+
+    /* Cifras clave dentro de una tarjeta */
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .metric {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.5rem 0.65rem;
+    }
+
+    .metric-value {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .metric-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    /* Puntos fuertes (IT + OT) */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.65rem;
+    }
+
+    .pillar {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.85rem 0.9rem;
+    }
+
+    .pillar-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .pillar-text {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .pillar-proof {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .edu-grid .entry {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    a.text-link {
+      color: inherit;
+      text-underline-offset: 2px;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--text-main);
+      outline-offset: 2px;
+    }
+
+    .print-only {
+      display: none;
+    }
+
     @media (max-width: 860px) {
       .col-8, .col-4, .col-6 {
         grid-column: span 12;
@@ -450,6 +594,9 @@
       .stack-row {
         grid-template-columns: 1fr;
         gap: 0.4rem;
+      }
+      .pillars {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -459,12 +606,145 @@
         align-items: flex-start;
         gap: 1rem;
       }
-      .lang-grid {
+      .lang-grid,
+      .pillars,
+      .edu-grid {
         grid-template-columns: 1fr;
+      }
+      .project-top {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .project-links {
+        justify-content: flex-start;
+      }
+      .metrics {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .topbar-actions .theme-text {
+        display: none;
       }
       footer {
         flex-direction: column;
         gap: 0.5rem;
+      }
+    }
+
+    .topbar-actions {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    /* Versión imprimible / PDF (Imprimir → Guardar como PDF) */
+    @media print {
+      @page {
+        size: A4;
+        margin: 11mm 11mm 12mm;
+      }
+      :root, :root[data-theme="dark"], :root[data-theme="light"] {
+        --bg-page: #ffffff;
+        --bg-box: #ffffff;
+        --bg-subtle: #ffffff;
+        --bg-tag: #ffffff;
+        --text-main: #111111;
+        --text-secondary: #333333;
+        --text-muted: #555555;
+        --border: #d4d4d8;
+        --accent: #111111;
+        --accent-text: #ffffff;
+        --status-bg: #ffffff;
+        --status-text: #047857;
+        --status-border: #a7f3d0;
+      }
+      html {
+        font-size: 11px;
+      }
+      body {
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .wrapper {
+        max-width: none;
+      }
+      .topbar,
+      .no-print {
+        display: none !important;
+      }
+      .print-only {
+        display: inline;
+      }
+      .bento-grid {
+        gap: 0.5rem;
+      }
+      /* The page is narrower than 860px, so restore the desktop columns. */
+      .col-8 { grid-column: span 8 !important; }
+      .col-4 { grid-column: span 4 !important; }
+      .col-6 { grid-column: span 6 !important; }
+      .stack-row {
+        grid-template-columns: 120px 1fr !important;
+      }
+      .box {
+        padding: 0.8rem 0.9rem;
+        border-radius: 6px;
+        break-inside: avoid;
+      }
+      .box-label {
+        margin-bottom: 0.5rem;
+      }
+      .avatar {
+        width: 64px;
+        height: 64px;
+      }
+      .summary {
+        margin-bottom: 0.8rem;
+      }
+      .btn {
+        padding: 0.15rem 0.4rem;
+        background: #ffffff;
+      }
+      .btn-solid {
+        color: #111111;
+        background: #ffffff;
+        border-color: var(--border);
+      }
+      .btn .arrow {
+        display: none;
+      }
+      .project-top {
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .repo-link {
+        font-size: 0;
+        border: none;
+        padding: 0;
+        background: none;
+      }
+      .repo-link::after {
+        content: attr(data-print);
+        font-size: 0.72rem;
+        color: var(--text-muted);
+      }
+      .pillars {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.4rem;
+      }
+      .pillar {
+        padding: 0.5rem 0.6rem;
+      }
+      .metrics {
+        margin-bottom: 0.6rem;
+      }
+      .spec-list {
+        margin-bottom: 0.6rem;
+        gap: 0.25rem;
+      }
+      .tags {
+        padding-top: 0.5rem;
+      }
+      footer {
+        margin-top: 0.6rem;
       }
     }
   </style>
@@ -476,15 +756,20 @@
     <!-- Barra Superior -->
     <div class="topbar">
       <span>ando144.github.io</span>
-      <button class="theme-btn" id="themeToggle" aria-label="Cambiar tema">
-        <span id="themeIcon">☾</span> <span id="themeText">Modo oscuro</span>
-      </button>
+      <div class="topbar-actions">
+        <button class="theme-btn" id="printBtn" type="button" aria-label="Descargar el CV en PDF">
+          <span aria-hidden="true">↓</span> <span>CV en PDF</span>
+        </button>
+        <button class="theme-btn" id="themeToggle" type="button" aria-label="Cambiar tema">
+          <span id="themeIcon" aria-hidden="true">☾</span> <span id="themeText" class="theme-text">Modo oscuro</span>
+        </button>
+      </div>
     </div>
 
     <!-- Bento Grid Principal -->
     <main class="bento-grid">
 
-      <!-- CUADRO 1: Perfil Principal (8 columnas) -->
+      <!-- 01: Perfil -->
       <section class="box col-8">
         <div class="box-label">
           <span>01 / Perfil</span>
@@ -492,7 +777,7 @@
         </div>
 
         <div class="profile-header">
-          <img class="avatar" src="https://avatars.githubusercontent.com/Ando144?v=3" alt="Andoni Ortiz de Zarate">
+          <img class="avatar" src="https://avatars.githubusercontent.com/Ando144?v=3" alt="Foto de Andoni Ortiz de Zarate" width="88" height="88">
           <div>
             <h1>Andoni Ortiz de Zarate Urruela</h1>
             <p class="role">Estudiante de 4º de Ingeniería Informática de Gestión y Sistemas de Información</p>
@@ -500,18 +785,18 @@
         </div>
 
         <p class="summary">
-          Formación centrada en ingeniería de software, procesamiento de datos e inteligencia artificial. Actualmente cursando estancia internacional Erasmus+ en <strong>Technische Hochschule Ingolstadt (Alemania)</strong>. Busco prácticas universitarias en el sector tecnológico o de digitalización industrial (Industria 4.0) en el País Vasco.
+          Formación centrada en ingeniería de software, procesamiento de datos e inteligencia artificial, con experiencia real en planta de producción y en programación de bajo nivel. Actualmente cursando estancia internacional Erasmus+ en <strong>Technische Hochschule Ingolstadt (Alemania)</strong>. Busco prácticas universitarias en el sector tecnológico o de digitalización industrial (Industria 4.0) en el País Vasco.
         </p>
 
         <div class="contact-row">
           <a href="mailto:andoni.otzdezarate@gmail.com" class="btn btn-solid">andoni.otzdezarate@gmail.com</a>
-          <a href="https://github.com/Ando144" target="_blank" rel="noopener" class="btn">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/andoni-ortiz-de-zarate-urruela" target="_blank" rel="noopener" class="btn">LinkedIn ↗</a>
+          <a href="https://github.com/Ando144" target="_blank" rel="noopener" class="btn">GitHub <span class="arrow">↗</span><span class="print-only">&nbsp;github.com/Ando144</span></a>
+          <a href="https://www.linkedin.com/in/andoni-ortiz-de-zarate-urruela" target="_blank" rel="noopener" class="btn">LinkedIn <span class="arrow">↗</span><span class="print-only">&nbsp;linkedin.com/in/andoni-ortiz-de-zarate-urruela</span></a>
           <a href="tel:+34646656893" class="btn">+34 646 656 893</a>
         </div>
       </section>
 
-      <!-- CUADRO 2: Estado y Datos Rápidos (4 columnas) -->
+      <!-- 02: Situación actual -->
       <aside class="box col-4">
         <div class="box-label">
           <span>02 / Situación actual</span>
@@ -539,10 +824,58 @@
         </div>
       </aside>
 
-      <!-- CUADRO 3: Proyecto 1 - TFG (6 columnas) -->
+      <!-- 03: Qué aporto -->
+      <section class="box col-12">
+        <div class="box-label">
+          <span>03 / Qué aporto</span>
+          <span>De la planta al dato</span>
+        </div>
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-title">Conocimiento de planta</div>
+            <div class="pillar-text">Cinco veranos en producción: planificación diaria, control de calidad sanitario y trazabilidad de lotes.</div>
+            <div class="pillar-proof">→ Quesería · TFG</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-title">Control y tiempo real</div>
+            <div class="pillar-text">Máquina de estados de 21 estados en ensamblador, con temporizadores, ADC y PWM, probada en simulación continua.</div>
+            <div class="pillar-proof">→ Controlador 8051</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-title">Datos e IA</div>
+            <div class="pillar-text">Pipelines de preprocesado, entrenamiento y evaluación de modelos con métricas reproducibles.</div>
+            <div class="pillar-proof">→ Clasificador NLP · TFG</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-title">Software de producto</div>
+            <div class="pillar-text">Apps Android completas que integran APIs externas, bases de datos locales, tests y CI.</div>
+            <div class="pillar-proof">→ UNIGO · RebuyTracker</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04: Experiencia en planta -->
+      <section class="box col-6">
+        <div class="box-label">
+          <span>04 / Experiencia en Planta</span>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-title">Asistente de Operaciones y Producción</span>
+            <span class="entry-date">Veranos 2022 — 2026</span>
+          </div>
+          <div class="entry-org">Quesería Familiar Artesanal · Respaldiza, Aiara</div>
+          <div class="entry-detail">
+            Ejecución de la planificación diaria de producción, control de calidad sanitario y trazabilidad de lotes. Conocimiento práctico de los procesos de planta que actualmente se digitalizan en el Trabajo Fin de Grado.
+          </div>
+        </div>
+      </section>
+
+      <!-- 05: TFG -->
       <article class="box project-box col-6">
         <div class="box-label">
-          <span>03 / Proyecto · TFG</span>
+          <span>05 / Proyecto · TFG</span>
           <span>En desarrollo</span>
         </div>
         <div class="project-top">
@@ -565,50 +898,62 @@
         </div>
       </article>
 
-      <!-- CUADRO 4: Proyecto 2 - UNIGO (6 columnas) -->
+      <!-- 06: Embebido 8051 -->
       <article class="box project-box col-6">
         <div class="box-label">
-          <span>04 / Proyecto · Android</span>
-          <span>2026</span>
+          <span>06 / Proyecto · Sistemas Embebidos</span>
+          <span>2024 — 2025</span>
         </div>
         <div class="project-top">
-          <h2 class="project-title">UNIGO — Movilidad Urbana en Bizkaia</h2>
-          <a href="https://github.com/Ando144/Unigo-SmartMobility-App" target="_blank" rel="noopener" class="repo-link">Repositorio ↗</a>
+          <h2 class="project-title">Controlador en Tiempo Real para Túnel de Lavado</h2>
+          <a href="https://github.com/Ando144/embedded-carwash-controller-8051" target="_blank" rel="noopener" class="repo-link" data-print="github.com/Ando144/embedded-carwash-controller-8051">Repositorio ↗</a>
         </div>
         <p class="project-context">
-          Aplicación nativa Android que centraliza horarios de transporte público y meteorología en tiempo real.
+          Firmware bare-metal para el control secuencial de un túnel de lavado automático, escrito desde cero en ensamblador para el microcontrolador Philips/NXP 80C552 (arquitectura 8051).
         </p>
+        <div class="metrics">
+          <div class="metric"><div class="metric-value">21</div><div class="metric-label">estados en la FSM</div></div>
+          <div class="metric"><div class="metric-value">50 ms</div><div class="metric-label">base de tiempo por interrupción</div></div>
+          <div class="metric"><div class="metric-value">18</div><div class="metric-label">tests automáticos en CI</div></div>
+        </div>
         <ul class="spec-list">
-          <li>Arquitectura MVVM en Java con persistencia local en SQLite mediante Room ORM.</li>
-          <li>Consumo de datos abiertos (Open Data Euskadi, Euskalmet, Open-Meteo) y visualización en Google Maps SDK.</li>
-          <li>Servicios en segundo plano para actualización de estado y rutas.</li>
+          <li>Máquina de estados dirigida por eventos, sincronizada con la interrupción del Timer 0.</li>
+          <li>Lectura de sensores por ADC, control en lazo cerrado de los rodillos y velocidad por PWM.</li>
+          <li>Simulador propio del 80C552 en Python que ejecuta el firmware real contra un modelo de la instalación en cada push (GitHub Actions).</li>
         </ul>
         <div class="tags">
-          <span class="tag">Java</span>
-          <span class="tag">Android SDK</span>
-          <span class="tag">MVVM / Room</span>
-          <span class="tag">SQLite</span>
-          <span class="tag">REST APIs</span>
+          <span class="tag">Assembly 8051</span>
+          <span class="tag">NXP 80C552</span>
+          <span class="tag">Bare-Metal</span>
+          <span class="tag">FSM</span>
+          <span class="tag">ADC / PWM / Interrupts</span>
+          <span class="tag">Python</span>
+          <span class="tag">GitHub Actions</span>
         </div>
       </article>
 
-      <!-- CUADRO 5: Proyecto 3 - NLP (6 columnas) -->
+      <!-- 07: NLP -->
       <article class="box project-box col-6">
         <div class="box-label">
-          <span>05 / Proyecto · Machine Learning</span>
-          <span>2026</span>
+          <span>07 / Proyecto · Machine Learning</span>
+          <span>2025</span>
         </div>
         <div class="project-top">
           <h2 class="project-title">Clasificador NLP sobre Corpus Enron-Spam</h2>
-          <a href="https://github.com/Ando144/NLP-Text-Classifier-Java-Weka" target="_blank" rel="noopener" class="repo-link">Repositorio ↗</a>
+          <a href="https://github.com/Ando144/NLP-Text-Classifier-Java-Weka" target="_blank" rel="noopener" class="repo-link" data-print="github.com/Ando144/NLP-Text-Classifier-Java-Weka">Repositorio ↗</a>
         </div>
         <p class="project-context">
-          Pipeline automatizado en Java para preprocesamiento de texto no estructurado y clasificación supervisada.
+          Pipeline automatizado en Java para preprocesamiento de texto no estructurado y clasificación supervisada de correos (spam / ham).
         </p>
+        <div class="metrics">
+          <div class="metric"><div class="metric-value">5.172</div><div class="metric-label">correos procesados</div></div>
+          <div class="metric"><div class="metric-value">96,6 %</div><div class="metric-label">accuracy en validación cruzada</div></div>
+          <div class="metric"><div class="metric-value">95,95 %</div><div class="metric-label">accuracy en test ciego</div></div>
+        </div>
         <ul class="spec-list">
-          <li>Representación vectorial mediante TF-IDF y filtrado de atributos sobre +5.100 correos.</li>
-          <li>Entrenamiento y ajuste de hiperparámetros de un Perceptrón Multicapa (MLP) con la API de Weka.</li>
-          <li>Precisión del 96,6% en validación cruzada.</li>
+          <li>Filtro Weka propio de normalización de texto y representación TF-IDF con selección de atributos.</li>
+          <li>Ajuste de hiperparámetros de un Perceptrón Multicapa (MLP) y comparación de cinco configuraciones.</li>
+          <li>Validación cruzada de 5 particiones, hold-out repetido y test ciego sobre 518 correos no vistos.</li>
         </ul>
         <div class="tags">
           <span class="tag">Java</span>
@@ -616,40 +961,78 @@
           <span class="tag">Multilayer Perceptron</span>
           <span class="tag">TF-IDF</span>
           <span class="tag">NLP</span>
+          <span class="tag">Bash</span>
         </div>
       </article>
 
-      <!-- CUADRO 6: Proyecto 4 - Embebido 8051 (6 columnas) -->
+      <!-- 08: UNIGO -->
       <article class="box project-box col-6">
         <div class="box-label">
-          <span>06 / Proyecto · Sistemas Embebidos</span>
-          <span>2024</span>
+          <span>08 / Proyecto · Android</span>
+          <span>2025 — 2026</span>
         </div>
         <div class="project-top">
-          <h2 class="project-title">Controlador en Tiempo Real para Tren de Lavado</h2>
-          <a href="https://github.com/Ando144/embedded-carwash-controller-8051" target="_blank" rel="noopener" class="repo-link">Repositorio ↗</a>
+          <h2 class="project-title">UNIGO — Movilidad Urbana en Bizkaia</h2>
+          <a href="https://github.com/Ando144/Unigo-SmartMobility-App" target="_blank" rel="noopener" class="repo-link" data-print="github.com/Ando144/Unigo-SmartMobility-App">Repositorio ↗</a>
         </div>
         <p class="project-context">
-          Software de bajo nivel bare-metal para el control secuencial de un túnel de lavado industrial.
+          App nativa Android para llegar a los campus universitarios de Bizkaia: rutas a pie, en bici o en transporte público, con estimación del CO₂ ahorrado frente al coche.
         </p>
+        <div class="metrics">
+          <div class="metric"><div class="metric-value">3.895</div><div class="metric-label">paradas de 7 redes de transporte</div></div>
+          <div class="metric"><div class="metric-value">8</div><div class="metric-label">servicios externos integrados</div></div>
+          <div class="metric"><div class="metric-value">6</div><div class="metric-label">idiomas</div></div>
+        </div>
         <ul class="spec-list">
-          <li>Programación en ensamblador para el microcontrolador Philips/NXP 80C552 (arquitectura 8051).</li>
-          <li>Máquina de Estados Finitos (FSM) determinista de 21 estados sincronizada por interrupciones hardware (50ms).</li>
-          <li>Control de actuadores y modulación de velocidad mediante señales PWM.</li>
+          <li>Rutas con Google Directions: decodificación de polilíneas y filtrado propio por modo de transporte.</li>
+          <li>Datos abiertos (Open Data Euskadi, Euskalmet, Open-Meteo), calidad del aire y polen en mapas de calor.</li>
+          <li>Persistencia en SQLite, tareas en segundo plano con WorkManager y notificación diaria con AlarmManager.</li>
         </ul>
         <div class="tags">
-          <span class="tag">Assembly 8051</span>
-          <span class="tag">NXP 80C552</span>
-          <span class="tag">Bare-Metal</span>
-          <span class="tag">FSM</span>
-          <span class="tag">PWM & Interrupts</span>
+          <span class="tag">Java</span>
+          <span class="tag">Android SDK</span>
+          <span class="tag">Google Maps SDK</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">WorkManager</span>
         </div>
       </article>
 
-      <!-- CUADRO 7: Habilidades Técnicas (7 columnas) -->
+      <!-- 09: RebuyTracker -->
+      <article class="box project-box col-6">
+        <div class="box-label">
+          <span>09 / Proyecto · Android + Web</span>
+          <span>2026</span>
+        </div>
+        <div class="project-top">
+          <h2 class="project-title">RebuyTracker — Liquidación de Partidas</h2>
+          <div class="project-links">
+            <a href="https://ando144.github.io/RebuyTracker/?demo" target="_blank" rel="noopener" class="repo-link no-print">Demo web ↗</a>
+            <a href="https://github.com/Ando144/RebuyTracker" target="_blank" rel="noopener" class="repo-link" data-print="github.com/Ando144/RebuyTracker">Repositorio ↗</a>
+          </div>
+        </div>
+        <p class="project-context">
+          App Android que registra entradas y recompras durante una partida de póker casera y calcula quién debe pagar a quién, con el mínimo número de transferencias.
+        </p>
+        <ul class="spec-list">
+          <li>Algoritmo de liquidación en céntimos enteros: los saldos siempre suman cero y se necesitan como máximo n − 1 transferencias.</li>
+          <li>Kotlin y Jetpack Compose con arquitectura MVVM (StateFlow); lógica cubierta por tests unitarios en GitHub Actions.</li>
+          <li>Publicación opcional vía API REST de GitHub a una web estática con ranking y gráficas (Chart.js).</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Kotlin</span>
+          <span class="tag">Jetpack Compose</span>
+          <span class="tag">MVVM</span>
+          <span class="tag">JUnit</span>
+          <span class="tag">GitHub API</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </article>
+
+      <!-- 10: Stack técnico -->
       <section class="box col-8">
         <div class="box-label">
-          <span>07 / Stack Técnico</span>
+          <span>10 / Stack Técnico</span>
         </div>
 
         <div class="stack-table">
@@ -657,10 +1040,12 @@
             <span class="stack-cat">Lenguajes</span>
             <div class="stack-items">
               <span class="tag">Java (Core, Servlets)</span>
+              <span class="tag">Kotlin</span>
               <span class="tag">Python</span>
               <span class="tag">C</span>
               <span class="tag">Ensamblador (8051 / 8085)</span>
               <span class="tag">SQL</span>
+              <span class="tag">JavaScript</span>
             </div>
           </div>
 
@@ -679,6 +1064,7 @@
             <span class="stack-cat">Desarrollo & BD</span>
             <div class="stack-items">
               <span class="tag">Android SDK</span>
+              <span class="tag">Jetpack Compose</span>
               <span class="tag">Room / SQLite</span>
               <span class="tag">GraphDB (NoSQL)</span>
               <span class="tag">JUnit (Unit Testing / TDD)</span>
@@ -689,6 +1075,7 @@
             <span class="stack-cat">Sistemas & DevOps</span>
             <div class="stack-items">
               <span class="tag">Git / GitHub</span>
+              <span class="tag">GitHub Actions (CI)</span>
               <span class="tag">Docker</span>
               <span class="tag">Linux Shell</span>
               <span class="tag">Google Cloud Platform (GCP)</span>
@@ -697,10 +1084,10 @@
         </div>
       </section>
 
-      <!-- CUADRO 8: Idiomas (4 columnas) -->
+      <!-- 11: Idiomas -->
       <section class="box col-4">
         <div class="box-label">
-          <span>08 / Idiomas</span>
+          <span>11 / Idiomas</span>
         </div>
         <div class="lang-grid" style="margin-top: auto; margin-bottom: auto;">
           <div class="lang-box">
@@ -722,45 +1109,29 @@
         </div>
       </section>
 
-      <!-- CUADRO 9: Formación Académica (6 columnas) -->
-      <section class="box col-6">
+      <!-- 12: Formación académica -->
+      <section class="box col-12">
         <div class="box-label">
-          <span>09 / Formación Académica</span>
+          <span>12 / Formación Académica</span>
         </div>
 
-        <div class="entry">
-          <div class="entry-header">
-            <span class="entry-title">Technische Hochschule Ingolstadt (THI)</span>
-            <span class="entry-date">Oct 2026 — Act.</span>
+        <div class="edu-grid">
+          <div class="entry">
+            <div class="entry-header">
+              <span class="entry-title">Universidad del País Vasco (UPV/EHU)</span>
+              <span class="entry-date">2022 — 2027</span>
+            </div>
+            <div class="entry-org">Grado en Ing. Informática de Gestión y Sistemas de Información · Bilbao</div>
+            <div class="entry-detail">Diseño Avanzado de Software, Sistemas Web, Arquitectura de Computadores, Ingeniería de Software.</div>
           </div>
-          <div class="entry-org">Programa Erasmus+ · Ingolstadt, Alemania</div>
-          <div class="entry-detail">Asignaturas en Inteligencia Artificial Aplicada e Ingeniería de Software Avanzada.</div>
-        </div>
 
-        <div class="entry">
-          <div class="entry-header">
-            <span class="entry-title">Universidad del País Vasco (UPV/EHU)</span>
-            <span class="entry-date">2022 — 2027</span>
-          </div>
-          <div class="entry-org">Grado en Ing. Informática de Gestión y Sistemas de Información · Bilbao</div>
-          <div class="entry-detail">Diseño Avanzado de Software, Sistemas Web, Arquitectura de Computadores, Ingeniería de Software.</div>
-        </div>
-      </section>
-
-      <!-- CUADRO 10: Experiencia Laboral (6 columnas) -->
-      <section class="box col-6">
-        <div class="box-label">
-          <span>10 / Experiencia en Planta</span>
-        </div>
-
-        <div class="entry">
-          <div class="entry-header">
-            <span class="entry-title">Asistente de Operaciones y Producción</span>
-            <span class="entry-date">Veranos 2022 — 2026</span>
-          </div>
-          <div class="entry-org">Quesería Familiar Artesanal · Respaldiza, Aiara</div>
-          <div class="entry-detail">
-            Ejecución de la planificación diaria de producción, control de calidad sanitario y trazabilidad de lotes. Conocimiento práctico de los procesos de planta que actualmente se digitalizan en el Trabajo Fin de Grado.
+          <div class="entry">
+            <div class="entry-header">
+              <span class="entry-title">Technische Hochschule Ingolstadt (THI)</span>
+              <span class="entry-date">Oct 2026 — Act.</span>
+            </div>
+            <div class="entry-org">Programa Erasmus+ · Ingolstadt, Alemania</div>
+            <div class="entry-detail">Asignaturas en Inteligencia Artificial Aplicada e Ingeniería de Software Avanzada.</div>
           </div>
         </div>
       </section>
@@ -769,29 +1140,31 @@
 
     <footer>
       <span>Andoni Ortiz de Zarate Urruela</span>
-      <span>Actualizado en 2026</span>
+      <span>Actualizado en noviembre de 2026</span>
     </footer>
 
   </div>
 
   <script>
-    const toggleBtn = document.getElementById('themeToggle');
+    const root = document.documentElement;
     const themeIcon = document.getElementById('themeIcon');
     const themeText = document.getElementById('themeText');
-    const root = document.documentElement;
 
-    toggleBtn.addEventListener('click', () => {
-      const isDark = root.getAttribute('data-theme') === 'dark';
-      if (isDark) {
-        root.setAttribute('data-theme', 'light');
-        themeIcon.textContent = '☾';
-        themeText.textContent = 'Modo oscuro';
-      } else {
-        root.setAttribute('data-theme', 'dark');
-        themeIcon.textContent = '☀';
-        themeText.textContent = 'Modo claro';
-      }
+    function showTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      themeIcon.textContent = theme === 'dark' ? '☀' : '☾';
+      themeText.textContent = theme === 'dark' ? 'Modo claro' : 'Modo oscuro';
+    }
+
+    showTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      showTheme(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
     });
+
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
   </script>
 </body>
 </html>
