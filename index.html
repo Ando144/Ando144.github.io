@@ -132,6 +132,7 @@
       align-items: center;
       gap: 0.4rem;
       transition: border-color 0.15s;
+      text-decoration: none;
     }
 
     .theme-btn:hover {
@@ -757,9 +758,9 @@
     <div class="topbar">
       <span>ando144.github.io</span>
       <div class="topbar-actions">
-        <button class="theme-btn" id="printBtn" type="button" aria-label="Descargar el CV en PDF">
+        <a class="theme-btn" href="Curriculum_AndoniOrtizdeZarate.pdf" download="Curriculum_AndoniOrtizdeZarate.pdf" aria-label="Descargar el CV en PDF">
           <span aria-hidden="true">↓</span> <span>CV en PDF</span>
-        </button>
+        </a>
         <button class="theme-btn" id="themeToggle" type="button" aria-label="Cambiar tema">
           <span id="themeIcon" aria-hidden="true">☾</span> <span id="themeText" class="theme-text">Modo oscuro</span>
         </button>
@@ -1129,7 +1130,6 @@
       try { localStorage.setItem('theme', next); } catch (e) {}
     });
 
-    document.getElementById('printBtn').addEventListener('click', () => window.print());
   </script>
 </body>
 </html>
